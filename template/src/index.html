@@ -7,7 +7,12 @@
   </head>
   <body>
     <div id="root"></div>
-    <script src="https://unpkg.com/react@16.2.0/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.production.min.js" crossorigin></script>
+    <% if(htmlWebpackPlugin.options.__APP_ENV__ === 'development') { %>
+      <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <% } else { %>
+      <script src="https://unpkg.com/react@16.2.0/umd/react.production.min.js" crossorigin></script>
+      <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.production.min.js" crossorigin></script>
+    <% } %>
   </body>
 </html>
